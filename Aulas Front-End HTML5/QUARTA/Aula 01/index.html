@@ -3,20 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Aula 01 - Front End</title>
-        <script>
-            //Comentários
-            //Exibe uma mensagem de alerta na tela.
-            window.alert("Testando a linguagem JS.");
-            window.confirm("Você tem certeza que deseja entrar no meu site?");
-            
-        </script>
+        
     </head>
     <body>
         <h1>
-            Seja bem vindo ao meu Site, [].
+            Seja bem vindo ao meu Site, <span id="nome"> </span>.
         </h1>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur unde iste ratione libero deleniti ipsa placeat error quae corporis? Facilis aperiam expedita dolor adipisci ipsum fugiat, provident earum reprehenderit vero.
         </p>
     </body>
+    <script>
+        //Comentários:
+
+        //Exibe uma mensagem de alerta na tela.
+        //window.alert("Testando a linguagem JS.");
+
+        //Exibe uma mensagem de confirmação na tela (OK/Cancelar).
+        //window.confirm("Você tem certeza que deseja entrar no meu site?");
+
+        //Exibe uma janela onde solicita que o usuário digite o que for solicitado.
+        //Não há a necessidade de inserir o "window" antes do comando.
+        var nomeUsuario = prompt("Digite seu nome: ");
+
+        //Permite acessar um elemento do HTML através de sua identificação
+        document.getElementById("nome").innerText = nomeUsuario;
+
+        //console.log(nomeUsuario);
+
+        //Exibe uma mensagem na área de console do navegador (Área do desenvolvedor F12).
+        //window.console.log("Estou testando o console...");
+    </script>
 </html>
