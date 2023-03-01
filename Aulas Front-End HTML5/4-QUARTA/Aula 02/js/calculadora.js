@@ -21,7 +21,7 @@ function calcular(tipoCalculo){
     let msgErro;
 
 /*
-    Exemplo utilizando o if.
+    Exemplo utilizando o "if".
     if(operacao == 'SOMAR'){
         resultado = Number(num1) + Number(num2)
     }else if(operacao == 'SUBTRAIR'){
@@ -32,28 +32,35 @@ function calcular(tipoCalculo){
         resultado = Number(num1) / Number(num2)
     } */
 
-    // Exemplo utilizando o Switch.
-    switch (operacao) {
-        case "SOMAR":
-            resultado = Number(num1) + Number(num2);
-            break;
-        case "SUBTRAIR":
-            resultado = Number(num1) - Number(num2);
-            break;
-        case "MULTIPLICAR":
-            resultado = Number(num1) * Number(num2);
-            break;
-        case "DIVIDIR":
-            // Tratamento de erro para divisão por zero
-            if (num2 == 0){
-                status = false;
-                msgErro = "Erro!!! Não é possivel realizar divisão por zero.";
-            } else {
-                resultado = Number(num1) / Number(num2);
-            }
-            break;   
-        default:
-            break;
+    // Validação para tratar a entrada de caracteres invalido.
+    // isNaN() - é uma função que valida se a variável tem valor numérico ou não
+    if (isNaN(num1) || isNaN(num2)) {
+        status = false;
+        msgErro = "Erro!!! Entrada de valores inválida, não é permito letras."
+    } else {
+        // Exemplo utilizando o "switch".
+        switch (operacao) {
+            case "SOMAR":
+                resultado = Number(num1) + Number(num2);
+                break;
+            case "SUBTRAIR":
+                resultado = Number(num1) - Number(num2);
+                break;
+            case "MULTIPLICAR":
+                resultado = Number(num1) * Number(num2);
+                break;
+            case "DIVIDIR":
+                // Tratamento de erro para divisão por zero
+                if (num2 == 0){
+                    status = false;
+                    msgErro = "Erro!!! Não é possivel realizar divisão por zero.";
+                } else {
+                    resultado = Number(num1) / Number(num2);
+                }
+                break;   
+            default:
+                break;
+        }
     }
 
     if (status) {
@@ -69,11 +76,10 @@ function calcular(tipoCalculo){
 }
 
 // Função para limpar todos os valores.
-function limpar(){
+function limpar() {
     document.getElementById('valor1').value = '';
     document.getElementById('valor2').value = '';
     document.getElementById('resultado').innerText = '';
-
 }
 
 // Posso fazer um jeito, que quando eu aperto o CE, perguntar
