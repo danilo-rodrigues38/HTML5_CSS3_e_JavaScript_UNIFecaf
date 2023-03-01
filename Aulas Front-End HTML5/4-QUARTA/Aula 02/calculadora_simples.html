@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <head>
+        <title>Calculadora</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src = "js/calculadora.js"></script>
+    </head>
+	<body>
+        <div id="conteudo">
+            <h1 id="titulo">
+                CALCULADORA - SIMPLES
+            </h1>
+            <div id="form">
+				<form name="frmmedia" method="get" action="calculadora_simples.php">
+					Valor 1: <input type="text" name="txtn1" value="" id="valor1" class="valor" placeholder="0" > <br>
+					Valor 2:<input type="text" name="txtn2" value="" id="valor2" class="valor" placeholder="0" > <br>
+
+					<div class="divOperacoes">
+						<div name="btnSomar" id="somar" class="botao" onclick="calcular('somar');">+</div>
+						<div name="btnSubtrair" id="subtrair" class="botao" onclick="calcular('subtrair');">-</div>
+					</div>
+
+					<div class="divOperacoes">
+						<div name="btnMultiplicar" id="multiplicar" class="botao" onclick="calcular('multiplicar');">*</div>
+						<div name="btnDivifir" id="dividir" class="botao" onclick="calcular('dividir');">/</div>
+					</div>
+					<div class="divOperacoes">
+						<div name="btnSomar" id="ce" class="botao" onclick="limpar();">CE</div>
+						
+					</div>
+				</form>
+            </div>
+            <div id="resultado">
+                
+            </div>
+        </div>
+	</body>
+</html>
+
+<!-- As inpotações em maioria sempre acontecem no head, 
+	mas há algumas exeções
+
+	se tem dificuldade, crie uma função, coloque um alert e chama.
+	Se funcionar , procegue com o código. 
+-->
