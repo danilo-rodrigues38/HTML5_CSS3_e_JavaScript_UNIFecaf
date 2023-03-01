@@ -18,6 +18,8 @@ function calcular(tipoCalculo){
     let divResultado = document.getElementById('resultado');
     let resultado;
 
+/*
+    Exemplo utilizando o if.
     if(operacao == 'SOMAR'){
         resultado = Number(num1) + Number(num2)
     }else if(operacao == 'SUBTRAIR'){
@@ -26,6 +28,24 @@ function calcular(tipoCalculo){
         resultado = Number(num1) * Number(num2)
     }else if (operacao == 'DIVIDIR'){
         resultado = Number(num1) / Number(num2)
+    } */
+
+    // Exemplo utilizando o Switch.
+    switch (operacao) {
+        case "SOMAR":
+            resultado = Number(num1) + Number(num2);
+            break;
+        case "SUBTRAIR":
+            resultado = Number(num1) - Number(num2);
+            break;
+        case "MULTIPLICAR":
+            resultado = Number(num1) * Number(num2);
+            break;
+        case "DIVIDIR":
+            resultado = Number(num1) / Number(num2);
+            break;   
+        default:
+            break;
     }
 
     //toFixed(2); - Permite limitara quantidade casas decimais. 
