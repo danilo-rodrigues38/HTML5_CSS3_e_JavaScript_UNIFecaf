@@ -17,6 +17,8 @@ function calcular(tipoCalculo){
     let num2 = document.getElementById('valor2').value;
     let divResultado = document.getElementById('resultado');
     let resultado;
+    let status = true;
+    let msgErro;
 
 /*
     Exemplo utilizando o if.
@@ -42,14 +44,25 @@ function calcular(tipoCalculo){
             resultado = Number(num1) * Number(num2);
             break;
         case "DIVIDIR":
-            resultado = Number(num1) / Number(num2);
+            // Tratamento de erro para divisão por zero
+            if (num2 == 0){
+                status = false;
+                msgErro = "Erro!!! Não é possivel realizar divisão por zero.";
+            } else {
+                resultado = Number(num1) / Number(num2);
+            }
             break;   
         default:
             break;
     }
 
-    //toFixed(2); - Permite limitara quantidade casas decimais. 
-    divResultado.innerHTML = resultado.toFixed(2);
+    if (status) {
+        //toFixed(2); - Permite limitar a quantidade casas decimais. 
+        divResultado.innerText = resultado.toFixed(2);
+    } else {
+        divResultado.innerText = msgErro;
+    }
+    
     //alert(resultado);
 
     // alert('Testando os botões ' + operacao) TESTE Dos botões;
@@ -63,5 +76,5 @@ function limpar(){
 
 }
 
-// Posso fazer um jeito , que quando eu aperto o ce, perguntar
-// se que apagar as duas , sim ou não, caso não , perguntar qual valor quer apagar.
+// Posso fazer um jeito, que quando eu aperto o CE, perguntar
+// se quer apagar os dois valores, sim ou não, caso não, perguntar qual valor quer apagar.
