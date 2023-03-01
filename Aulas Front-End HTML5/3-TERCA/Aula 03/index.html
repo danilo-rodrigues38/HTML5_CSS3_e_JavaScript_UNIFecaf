@@ -39,6 +39,8 @@
 
                     <td> - Define a criação de uma coluna (célula)
                         width - define a largura da coluna (célula)
+                            aling - alinhamento horizontal (left - center - right)
+                            valing - alinhamento vertival (top, middle, bottom)
         -->
         <table width="500" height="500" border="1">
             <tr height="250"> <!--Linha 01-->
@@ -55,6 +57,51 @@
                 </td>
                 <td width="250"> <!--Coluna 02 da linha 02-->
 
+                </td>
+            </tr>
+        </table>
+
+        <!--Exemplo da WireFrame com várias tabelas-->
+        <table width="1320" height="400" border="1">
+            <tr>
+                <td width="500"> <!--Coluna 01 para criar a estrutura-->
+                    <!--Tabela que divide essa célula em coluna de imagens e coluna de texto-->
+                    <table width="100%" height="100%" border="1">
+                        <tr>
+                            <td width="40%"> <!--Coluna 01 - Imagnes-->
+                                <table width="100%" height="100%" border="1">
+                                    <tr height="50%">
+                                        <td> <!--Linha 01 - Imagem 01-->
+
+                                        </td>
+                                    </tr>
+                                    <tr height="50%">
+                                        <td> <!--Linha 02 - Imagem 02-->
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="60%"> <!--Coluna 02 - Texto-->
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td width="700"><!--Coluna 02 para criar a estrutura-->
+                    <table width="100%" height="100%" border="1">
+                        <tr>
+                            <td height="70%">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30%">
+
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
