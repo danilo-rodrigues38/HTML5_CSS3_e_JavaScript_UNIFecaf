@@ -8,7 +8,7 @@
 ********************************************************************/
 
 // Função para realizar os calculos matemáticos 
-function calcular(tipoCalculo){
+function calcular(tipoCalculo) {
     // Recebe o argumento e converte para MAISCÚLO (toUpperCase();)
     let operacao = tipoCalculo.toUpperCase();
     /* Recebe os valores digitados nas caixas de texto, no HTML
@@ -66,8 +66,12 @@ function calcular(tipoCalculo){
     if (status) {
         //toFixed(2); - Permite limitar a quantidade casas decimais. 
         divResultado.innerText = resultado.toFixed(2);
+        divResultado.style.color = "black";
+        divResultado.style.fontSize = "3em";
     } else {
         divResultado.innerText = msgErro;
+        divResultado.style.color = "black";
+        divResultado.style.fontSize = "2em";
     }
     
     //alert(resultado);
