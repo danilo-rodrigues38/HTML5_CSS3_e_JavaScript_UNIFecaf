@@ -8,9 +8,10 @@
 // Gerar a tabuada de um número.
 const calcularTabuada = function(numeroTabuada){
     let tabuada = numeroTabuada;
+    let status = true;
 
     if (isNaN(tabuada) || tabuada == 0){
-        console.log("Erro! Digite apenas números diferentes de 0 (zero).");
+        status = false;
     } else {
         for (cont = 1; cont <= 10; cont++){
             console.log(`${tabuada} X ${cont.toString().padStart(2, ' ')} = ${(tabuada * cont).toString().padStart(2, ' ')}`);
@@ -19,5 +20,7 @@ const calcularTabuada = function(numeroTabuada){
     return status;
 }
 
-calcularTabuada(5);
-
+// Para acessar uma função em outro arquivo é necessário fazer o exports da função.
+module.exports = {
+    calcularTabuada
+}
