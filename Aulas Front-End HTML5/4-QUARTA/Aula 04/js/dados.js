@@ -7,7 +7,7 @@
 
 // Criamos um objeto que recebe todas as características do botão.
 var botaoTabela = document.getElementById("tabela");
-var botaoCriar = document.getElementById("criar");
+//var botaoCriar = document.getElementById("criar");
 
 const criarElementos = function() {
     // Cria um objeto que recebe todas as características da div.
@@ -30,4 +30,4 @@ const criarElementos = function() {
 // Cria um evento de escuta para o botão utilizando a ação de click
 botaoTabela.addEventListener("click", function(){criarElementos()});
 
-botaoCriar.addEventListener("click", function(){});
+//botaoCriar.addEventListener("click", function(){});
