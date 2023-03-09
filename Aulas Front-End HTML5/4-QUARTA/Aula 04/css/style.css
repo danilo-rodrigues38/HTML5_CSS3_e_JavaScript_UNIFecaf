@@ -1,7 +1,7 @@
 body{
     display: flex;
     align-items: center;
-    background-image: url('../imagens/Captura-de-pantalla-2022-03-11-a-las-10.51.35.png');
+    /*background-image: url('../imagens/Captura-de-pantalla-2022-03-11-a-las-10.51.35.png');*/
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
