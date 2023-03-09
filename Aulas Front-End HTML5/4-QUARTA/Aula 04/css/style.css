@@ -48,12 +48,10 @@ body{
 }
 
 .divOperacoes {
-    
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-
 }
 
 .botao{
@@ -66,7 +64,6 @@ body{
     line-height: 2;
     margin-top: 30px;
     margin-bottom: 30px;
-
 }
 
 .botao:hover{
@@ -93,7 +90,6 @@ label{
     width: 100px;
     border: 1px;
     text-align: right;
-    
 }
 
 
@@ -101,7 +97,6 @@ table{
     width: 600px;
     height: auto;
     margin: auto;
-
 }
 
 table tr{
@@ -113,20 +108,15 @@ table tr td {
     background-color: bisque;
     font-family: verdana;
     font-size: 1em;
-    
 }
 
 table tr:first-child{
     font-weight: bold;
     font-size: 1.3em;
     text-align: center;
-  
-    
 }
 
 
 table tr:first-child td{
     background-color: aqua;
-
-
 }
