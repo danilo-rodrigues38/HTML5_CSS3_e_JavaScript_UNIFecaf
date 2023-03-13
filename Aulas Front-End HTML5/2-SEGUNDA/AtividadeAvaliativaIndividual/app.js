@@ -1,7 +1,6 @@
 // Importe dos arquivos e funções.
-var readline = require("readline");
-const { somar } = require("./modulo/soma");
-var somatorio = require("./modulo/soma");
+var readline = require('readline');
+var somatorio = require('./modulo/somar.js');
 
 var teclado = readline.createInterface({
     input : process.stdin,
