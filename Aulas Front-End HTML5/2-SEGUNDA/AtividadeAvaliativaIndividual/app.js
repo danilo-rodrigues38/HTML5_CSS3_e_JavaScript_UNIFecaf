@@ -7,12 +7,9 @@ var teclado = readline.createInterface({
     output : process.stdout
 });
 
-teclado.question("Digite um número: ", function(num1){
-    var numero1 = num1;
+teclado.question("Digite dois número: ", function(num1, num2){
+    let numero1 = num1;
+    let numero2 = num2
+    console.log("A soma entre " + numero1 + " e " + numero2 + " è igual a " 
+    + matematica.calcularSomatorio(numero1, numero2));
 });
-
-teclado.question("Digite outro número: ",function(num2){
-    var numero2 = num2;
-})
-
-console.log("A soma entre " + numero1 + " e " + numero2 + " è igual a " + matematica.somar(numero1, numero2));
