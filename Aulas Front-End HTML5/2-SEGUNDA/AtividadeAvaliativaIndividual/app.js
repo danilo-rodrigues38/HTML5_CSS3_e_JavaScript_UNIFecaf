@@ -7,7 +7,15 @@ var entradaDados = readline.createInterface({
     output : process.stdout
 });
 
-entradaDados.question("Digite um valor para calcular a área de um circulo: ", function(num){
-    let calculoCirculo = num;
-    matematica.getCalculoCirculo(calculoCirculo);
-});
+console.log("\n\nCALCULANDO A ÁREA DO CÍRCULO\n");
+console.log("Raio = 1.25");
+var valorRaio = 1.25;
+matematica.getCalculoCirculo(valorRaio);
+
+console.log("\n\nCALCULANDO A ÁREA DO QUADRADO\n");
+console.log("Base = 5");
+var entradaValorBase = 5;
+console.log("Altura = 3");
+var entradaValorAltura = 3;
+
+matematica.getCalculoQuadrado(entradaValorBase, entradaValorAltura);
