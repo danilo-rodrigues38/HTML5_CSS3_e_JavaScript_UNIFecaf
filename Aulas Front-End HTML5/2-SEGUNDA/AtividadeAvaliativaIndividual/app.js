@@ -7,12 +7,12 @@ var entradaDados = readline.createInterface({
     output : process.stdout
 });
 
-console.log("\n\nCALCULANDO A ÁREA DO CÍRCULO\n");
+console.log("\n\nCALCULANDO A ÁREA DO CÍRCULO");
 console.log("Raio = 1.25");
 var valorRaio = 1.25;
 matematica.getCalculoCirculo(valorRaio);
 
-console.log("\n\nCALCULANDO A ÁREA DO QUADRADO\n");
+console.log("\n\nCALCULANDO A ÁREA DO QUADRADO");
 console.log("Base = 5");
 var entradaValorBase = 5;
 console.log("Altura = 3");
