@@ -5,9 +5,7 @@
  * Versão: 0.0.1 
  *****************************************************************************************/
 
-const getCalculoQuadrado = function(vlbase, vlaltura){
-    let base = vlbase;
-    let altura = vlaltura;
+const getCalculoQuadrado = function(base, altura){
     let status = true;
 
     if (base == '' || altura == ''){
@@ -16,7 +14,7 @@ const getCalculoQuadrado = function(vlbase, vlaltura){
         status = false;
     } else if (base == 0 || altura == 0){
         status = false;
-    } else if (base = null || altura == null){
+    } else if (base == null || altura == null){
         status = false;
     } else {
         resultado = base * altura
@@ -46,6 +44,10 @@ const getCalculoCirculo = function(vlraio){
     }
     return status;
 };
+// Testando as funções
+console.log(getCalculoQuadrado(5, 5));
+console.log(getCalculoCirculo(1));
+
 
 module.exports = {
     getCalculoQuadrado,
