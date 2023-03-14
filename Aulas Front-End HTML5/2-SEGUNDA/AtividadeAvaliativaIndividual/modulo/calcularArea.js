@@ -12,22 +12,32 @@ const getCalculoQuadrado = function(vlbase, vlaltura){
 
     if (isNaN(base) || isNaN(altura)){
         status = false;
+    } else if (!status){
+        return status;
     } else {
-        console.log("A área do quadrado é " + base * altura + "m².");
+        resultado = base * altura
+        console.log("A área do quadrado é " + resultado + "m².");
     }
     return status;
 };
 
-const getCalculoCirculo = function(num1){
-    let raio = num1;
+const getCalculoCirculo = function(vlraio){
+    let raio = vlraio;
     let area;
     let status = true;
 
-    if(isNaN(raio)){
+    if (raio == ''){
         status = false;
-    } else {
+    } else if (isNaN(raio)){
+        status = false;
+    } else if (raio == 0){
+        status = false;
+    } else if (raio == null){
+        status = false;
+    }else {
         area = Math.PI * raio * raio;
-        console.log("A área do círculo é " + area);
+        console.log('A área do círculo é ' + area)
+        status = true;
     }
     return status;
 };
