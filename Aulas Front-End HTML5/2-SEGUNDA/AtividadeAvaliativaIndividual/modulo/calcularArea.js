@@ -10,13 +10,18 @@ const getCalculoQuadrado = function(vlbase, vlaltura){
     let altura = vlaltura;
     let status = true;
 
-    if (isNaN(base) || isNaN(altura)){
+    if (base == '' || altura == ''){
         status = false;
-    } else if (!status){
-        return status;
+    } else if (isNaN(base) || isNaN(altura)){
+        status = false;
+    } else if (base == 0 || altura == 0){
+        status = false;
+    } else if (base = null || altura == null){
+        status = false;
     } else {
         resultado = base * altura
         console.log("A área do quadrado é " + resultado + "m².");
+        status = true;
     }
     return status;
 };
