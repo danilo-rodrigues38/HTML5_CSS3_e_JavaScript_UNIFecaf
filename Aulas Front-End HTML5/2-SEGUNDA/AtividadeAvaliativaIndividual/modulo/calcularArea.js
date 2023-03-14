@@ -20,7 +20,7 @@ const getCalculoQuadrado = function(vlbase, vlaltura){
         status = false;
     } else {
         resultado = base * altura
-        console.log("A área do quadrado é " + resultado + "m².");
+        console.log("A área do quadrado é " + resultado);
         status = true;
     }
     return status;
