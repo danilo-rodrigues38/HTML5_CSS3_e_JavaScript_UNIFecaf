@@ -5,7 +5,7 @@
  * Versão: 0.0.1
  *******************************************************************************/
 
-//letiaveis globais
+//Variaveis
 let numero;
 let calculo="";
 
@@ -44,7 +44,6 @@ document.getElementById('ce').addEventListener("click",() => {
 
 //Função calculo
 document.getElementById("calcular").addEventListener("click",() => {
-    let resultado;
     if (calculo=="somar"){
         resultado=numero+Number(document.getElementById("valor").value);
     } else if (calculo=="subtrair"){
