@@ -13,7 +13,7 @@ var tabela = document.createElement("table");
 
 // Criamos um objeto que recebe todas as características do botão.
 var botaoTabela = document.getElementById("tabela");
-var botaoCriar = document.getElementById("criar");
+var botaoCriarItens = document.getElementById("criar");
 
 /* const criarElementos = function() {
 
