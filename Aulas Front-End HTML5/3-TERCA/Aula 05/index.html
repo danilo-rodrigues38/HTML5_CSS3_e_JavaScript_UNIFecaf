@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 - Formulários</title>
+</head>
+<body>
+
+    <!--
+        <form> - permite especificar o conteudo de dentro será um formulário.
+            name - define o nome para o elemento.
+            method
+                get - Envia os dados do formulário para a URL.
+                post - Envia os dados do formulário para variaveis locaia no navegador (melhor opção).
+            action - especifica para qual arquivo ou página os dados serão enviados.
+        
+        <input> - permite colocar elementos de entrada de dados.
+            type="text"
+                 "number"
+                 "email" etc
+            size - permite ajustar o tamanho da caixa.
+            maxlenght - permite limitar a quantidade de caracteres.
+            min / max - permite especificar no type="number" o maximo e o minimo de valores.
+            placeholder - permite colocar um lembrete dentro da caixa de texto.
+
+            type="submit" - permite criar um botão para resgatar os dados do formulário, via GET ou POST.
+            type="reset" - permite limpar os dados do formulário.
+            type="email" - permite validar a digitação de e-mail.
+            type="radio" - permite colocar elemento de única escolha, porém para funcionar precisa que todos os elementos radio, tenham o mesmo.
+            type="checkbox" - permite colocar elementos de multipla escolha.
+    -->
+
+    <form name="frmContatos" method="get" action="cadastroContatos.html">
+        <table width="600" height="50" border="1" align="center">
+            <tr>
+                <td colspan="2" align="center"> Contatos </td>
+            </tr>
+            <tr>
+                <td width="10%">Nome:</td>
+                <td width="90%">
+                    <input type="text" name="txtNome" maxlength="100" size="70" placeholder="Digite seu nome." required>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">Idade:</td>
+                <td width="90%">
+                    <input type="number" name="nbrIdade" size="10" max="100" min="0">
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">E-mail:</td>
+                <td width="90%">
+                    <input type="email" name="txtemail" maxlength="100" size="70" placeholder="Digite um e-mail válido">
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">Sexo:</td>
+                <td width="90%">
+                    <input type="radio" name="rdoSexo" value="F" checked>Feminino
+                    <input type="radio" name="rdoSexo" value="M">Masculino
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">Idiomas:</td>
+                <td width="90%">
+                    <input type="checkbox" name="chkPortugues" value="pt-br" checked> Português<br>
+                    <input type="checkbox" name="chkEnglish" value="en"> Inglês<br>
+                    <input type="checkbox" name="chkEspanhol" value="es"> Espanhol<br>
+                    <input type="checkbox" name="chkItaliano" value="it"> Italiano<br>
+                    <input type="checkbox" name="chkAlemao" value="german"> Alemão<br>
+                    <input type="checkbox" name="chkOutro" value="outro"> Outro:
+                    <input type="text" name="txtOutro" maxlength="20" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">UF:</td>
+                <td width="90%">
+                    <select name="sltEstado">
+                        <option>Selecione um Estado</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Espírito Santo</option>
+                        <option>Goiás</option>
+                        <option>Marnhão</option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará</option>
+                        <option>Paraíba</option>
+                        <option>Paraná</option>
+                        <option>Pernanbuco</option>
+                        <option>Piauí</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondonia</option>
+                        <option>Roaima</option>
+                        <option>Santa Catarina</option>
+                        <option>São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="btnSalvar" value="Salvar">
+                    <input type="reset" name="btnLimpar" value="Limpar">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
