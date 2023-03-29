@@ -83,7 +83,20 @@ const criarItensTabela = function(){
     // Acrescenta os objetos de texto dentro das "tds" que contem os dados digitados pelo usuário.
     colunaItemNome.appendChild(textoNome);
     colunaItemTelefone.appendChild(textoTelefone);
+
+    // Chama a função para limpar todos os elementos do formulário.
+    limparElementos();
 }
+
+// Limpa os elementos do formulário,
+const limparElementos = function(){
+    // Limpar as caixas de testo.
+    document.getElementById("nome").value="";
+    document.getElementById("telefone").value="";
+
+    // Direciona o foco (cursor do maouse) para a caixa de texto do nome.
+    document.getElementById("nome").focus();
+};
 
 // Cria um evento de escuta para o botão utilizando a ação de click
 botaoTabela.addEventListener("click", function(){criarTabela()});
