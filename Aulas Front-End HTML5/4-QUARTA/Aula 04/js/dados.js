@@ -61,31 +61,37 @@ const criarTabela = function(){
 const criarItensTabela = function(){
 
     // Recebe a entrada de dados realizada pelo usuário.
-    let entradaNome = document.getElementById("nome").value;
-    let entradaTelefone = document.getElementById("telefone").value;
+    // trinStart() - elimina os espaços em branco do início do conteúdo.
+    // trinEnd() - elimina os espaçoes em branco do final do conteúdo
+    let entradaNome = String(document.getElementById("nome").value).trimStart().trimEnd();
+    let entradaTelefone = String(document.getElementById("telefone").value).trimStart().trimEnd();
 
-    // Cria uma linha "tr" e duas colunas "td".
-    let linhaItem = document.createElement("tr");
-    let colunaItemNome = document.createElement("td");
-    let colunaItemTelefone = document.createElement("td");
+    if(entradaNome == "" || entradaTelefone == ""){
+        alert("Por favor, preencha todos os campos!")
+    } else {
+        // Cria uma linha "tr" e duas colunas "td".
+        let linhaItem = document.createElement("tr");
+        let colunaItemNome = document.createElement("td");
+        let colunaItemTelefone = document.createElement("td");
 
-    // Cria dois objetos de texto para escrever o que foi digitado pelo usuário.
-    let textoNome = document.createTextNode(entradaNome);
-    let textoTelefone = document.createTextNode(entradaTelefone);
+        // Cria dois objetos de texto para escrever o que foi digitado pelo usuário.
+        let textoNome = document.createTextNode(entradaNome);
+        let textoTelefone = document.createTextNode(entradaTelefone);
 
-    // Acrescenta a nova linha "tr" na table principal.
-    tabela.appendChild(linhaItem);
+        // Acrescenta a nova linha "tr" na table principal.
+        tabela.appendChild(linhaItem);
 
-    // Acrescenta as duas novas "tds" dentro da "tr" anterior.
-    linhaItem.appendChild(colunaItemNome);
-    linhaItem.appendChild(colunaItemTelefone);
+        // Acrescenta as duas novas "tds" dentro da "tr" anterior.
+        linhaItem.appendChild(colunaItemNome);
+        linhaItem.appendChild(colunaItemTelefone);
 
-    // Acrescenta os objetos de texto dentro das "tds" que contem os dados digitados pelo usuário.
-    colunaItemNome.appendChild(textoNome);
-    colunaItemTelefone.appendChild(textoTelefone);
+        // Acrescenta os objetos de texto dentro das "tds" que contem os dados digitados pelo usuário.
+        colunaItemNome.appendChild(textoNome);
+        colunaItemTelefone.appendChild(textoTelefone);
 
-    // Chama a função para limpar todos os elementos do formulário.
-    limparElementos();
+        // Chama a função para limpar todos os elementos do formulário.
+        limparElementos();
+    }
 }
 
 // Limpa os elementos do formulário,
@@ -98,8 +104,10 @@ const limparElementos = function(){
     document.getElementById("nome").focus();
 };
 
+// Cria um evento para escutar o evento de load (carregar) na ação de carregar o navegador.
+window.addEventListener("load", function(){criarTabela()});
+
 // Cria um evento de escuta para o botão utilizando a ação de click
-botaoTabela.addEventListener("click", function(){criarTabela()});
 botaoCriarItens.addEventListener("click", function(){criarItensTabela()});
 
 //botaoCriar.addEventListener("click", function(){});
