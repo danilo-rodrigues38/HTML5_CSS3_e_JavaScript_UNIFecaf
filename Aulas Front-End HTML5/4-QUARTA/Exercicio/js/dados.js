@@ -20,10 +20,10 @@ const percorrerArray = function(){
     let texto = document.createTextNode("texto");
 
     //4. Associar o option dentro de select.
-    option.appendChild(select);
+    select.appendChild(option);
 
     //5. Associar o objeto de texto dentro da option.
-    texto.appendChild(option);
+    option.appendChild(texto);
     
     // estados.forEach(function(item){
 
