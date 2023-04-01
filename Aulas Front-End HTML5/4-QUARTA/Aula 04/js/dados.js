@@ -8,7 +8,7 @@
 // Recebe a div para colocar a tabela
 var div = document.getElementById("listaDeNomes");
 
-// Cria os elemontos table, tr e td para criar a tabela.
+// Cria os elementos table, tr e td para criar a tabela.
 var tabela = document.createElement("table");
 
 // Criamos um objeto que recebe todas as características do botão.
