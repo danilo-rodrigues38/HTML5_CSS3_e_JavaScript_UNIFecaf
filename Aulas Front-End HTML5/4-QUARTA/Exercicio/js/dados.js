@@ -1,7 +1,7 @@
 /******************************************************
  * Objetivo: Manipular elementos HTML pelo JavaScript.
  * Autor: Danilo Rodrigues de Oliveira
- * Data: 08/03/2023
+ * Data: 29/03/2023
  * Versão: 0.0.1 
  ******************************************************/
 
@@ -25,10 +25,11 @@ const percorrerArray = function(){
     //5. Associar o objeto de texto dentro da option.
     option.appendChild(texto);
     
-    // estados.forEach(function(item){
-
-    // })
+    /* estados.forEach(function(item){
+        select.appendChild(option);
+        option.appendChild(item);
+    }) */
 };
 
 
-botaoCarregarEstados.addEventListner("click", function(){percorrerArray();});
+botaoCarregarEstados.addEventListener("click", function(){percorrerArray();});
