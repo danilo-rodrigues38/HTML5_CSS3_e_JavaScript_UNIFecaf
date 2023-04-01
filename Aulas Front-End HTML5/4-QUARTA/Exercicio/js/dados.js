@@ -31,4 +31,4 @@ const percorrerArray = function(){
 };
 
 
-botaoCarregarEstados.addEventListner("click", function(){percorrerArray()});
+botaoCarregarEstados.addEventListner("click", function(){percorrerArray();});
