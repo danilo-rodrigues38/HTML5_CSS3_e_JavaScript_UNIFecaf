@@ -6,30 +6,27 @@
  ******************************************************/
 
 var botaoCarregarEstados = document.getElementById("carregar");
-var estados =  ['SP', 'AC', 'RJ', 'BA', 'CE', 'MG', 'GO', 'SC', 'SE', 'TO', 'RR', 'RO', 'RS', 'RN', 'PI', 'PE', 'PR', 'PB', 'PA', 'MT', 'MS', 'MA', 'ES', 'DF', 'AM', 'AP', 'AL'];
-var totalEstados = estados.length;
+var uf =  ['SP', 'AC', 'RJ', 'BA', 'CE', 'MG', 'GO', 'SC', 'SE', 'TO', 'RR', 'RO', 'RS', 'RN', 'PI', 'PE', 'PR', 'PB', 'PA', 'MT', 'MS', 'MA', 'ES', 'DF', 'AM', 'AP', 'AL'];
+var estados = uf.sort();
 
 const percorrerArray = function(){
-    //1. criar um objeto especialista no elemento select
-    let select = document.getElementById("estados");
+    estados.forEach(function(item){
+        //1. criar um objeto especialista no elemento select
+        let createSelect = document.getElementById("estados");
 
-    //2. criar um objeto do tipo option.
-    let option = document.createElement("option");
+        //2. criar um objeto do tipo option.
+        let createOption = document.createElement("option");
 
-    //3. criar um objeto de texto.
-    let texto = document.createTextNode("texto");
+        //3. criar um objeto de texto.
+        let createText = document.createTextNode(item);
 
-    //4. Associar o option dentro de select.
-    select.appendChild(option);
+        //4. Associar o option dentro de select.
+        createSelect.appendChild(createOption);
 
-    //5. Associar o objeto de texto dentro da option.
-    option.appendChild(texto);
-    
-    /* estados.forEach(function(item){
-        select.appendChild(option);
-        option.appendChild(item);
-    }) */
+        //5. Associar o objeto de texto dentro da option.
+        createOption.appendChild(createText);
+    });
 };
 
 
-botaoCarregarEstados.addEventListener("click", function(){percorrerArray();});
+botaoCarregarEstados.addEventListener("click", function(){percorrerArray()});
