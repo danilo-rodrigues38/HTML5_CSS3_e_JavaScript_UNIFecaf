@@ -33,38 +33,38 @@
     -->
 
     <form name="frmContatos" method="get" action="cadastroContatos.html">
-        <table width="600" height="50" border="1" align="center">
+        <table width="800" height="800" border="1" align="center">
             <tr>
                 <td colspan="2" align="center"> Contatos </td>
             </tr>
             <tr>
-                <td width="10%">Nome:</td>
-                <td width="90%">
+                <td width="20%">Nome:</td>
+                <td width="80%">
                     <input type="text" name="txtNome" maxlength="100" size="70" placeholder="Digite seu nome." required>
                 </td>
             </tr>
             <tr>
-                <td width="10%">Idade:</td>
-                <td width="90%">
+                <td width="20%">Idade:</td>
+                <td width="80%">
                     <input type="number" name="nbrIdade" size="10" max="100" min="0">
                 </td>
             </tr>
             <tr>
-                <td width="10%">E-mail:</td>
-                <td width="90%">
+                <td width="20%">E-mail:</td>
+                <td width="80%">
                     <input type="email" name="txtemail" maxlength="100" size="70" placeholder="Digite um e-mail válido">
                 </td>
             </tr>
             <tr>
-                <td width="10%">Sexo:</td>
-                <td width="90%">
+                <td width="20%">Sexo:</td>
+                <td width="80%">
                     <input type="radio" name="rdoSexo" value="F" checked>Feminino
                     <input type="radio" name="rdoSexo" value="M">Masculino
                 </td>
             </tr>
             <tr>
-                <td width="10%">Idiomas:</td>
-                <td width="90%">
+                <td width="20%">Idiomas:</td>
+                <td width="80%">
                     <input type="checkbox" name="chkPortugues" value="pt-br" checked> Português<br>
                     <input type="checkbox" name="chkEnglish" value="en"> Inglês<br>
                     <input type="checkbox" name="chkEspanhol" value="es"> Espanhol<br>
@@ -75,8 +75,8 @@
                 </td>
             </tr>
             <tr>
-                <td width="10%">UF:</td>
-                <td width="90%">
+                <td width="20%">UF:</td>
+                <td width="80%">
                     <select name="sltEstado">
                         <option>Selecione um Estado</option>
                         <option value="Acre">Acre</option>
@@ -105,6 +105,18 @@
                         <option value="Sergipe">Sergipe</option>
                         <option value="Tocantins">Tocantins</option>
                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Observação:</td>
+                <td width="80%">
+                    <textarea name="txtObservacao" rows="7" cols="68" placeholder="Escreva sua observação..."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Data de nascimento:</td>
+                <td width="80%">
+                    <input type="date" name="dtaNascimento">
                 </td>
             </tr>
             <tr>
