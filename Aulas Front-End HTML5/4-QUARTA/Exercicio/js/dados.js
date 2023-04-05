@@ -46,9 +46,10 @@ const percorrerArray = function(){
 };
 
 // Necessita clicar no botão para carregar as options.
-//botaoCarregarEstados.addEventListener("click", function(){percorrerArray()});
-
+botaoCarregarEstados.addEventListener("click", function(){percorrerArray()});
+/* 
 // Carrega automaticamente as options
 window.addEventListener("load", function(){
     percorrerArray()
 });
+ */
