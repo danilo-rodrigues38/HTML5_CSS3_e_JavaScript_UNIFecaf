@@ -1,0 +1,30 @@
+/*Seletor pela TAG*/
+h1 {
+    color: darkgreen;
+    font-family: impact;
+    text-align: center;
+}
+
+/*Seletor pela TAG*/
+p {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium';
+    text-align: justify;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-style: italic;
+}
+
+/*Seletor pelo (id)*/
+#titulo {
+    color: deepskyblue;
+}
+
+/*Seletor pela (class)*/
+.texto_conteudo{
+    font-family: verdana;
+    font-size: 20px;
+    color: fuchsia;
+    font-weight: bold;
+    padding: 0%;
+}
