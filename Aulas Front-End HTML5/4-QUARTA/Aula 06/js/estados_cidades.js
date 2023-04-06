@@ -19,6 +19,7 @@ const getEstados = function(){
 
       // Associando os elementos HTML um dentro do outro.
       selectEstado.appendChild(option);
+      option.setAttribute("value", item) // Permite criar um atributo dentro da TAG HTML
       option.appendChild(textEstado);
    });
 };
