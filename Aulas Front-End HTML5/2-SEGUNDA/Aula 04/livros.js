@@ -2359,25 +2359,37 @@
 // Saída da função: Title, isbn13, price e image.
 const getlivros = function(nomeDoLivro){
 
-    // Recebe a variável do nome do livro e converte para maiúscula
+    // Recebe a variável do nome do livro e converte para maiúscula.
     let nome = String(nomeDoLivro).toUpperCase();
+    let status = false;
 
-    // Cria uma variável do tipo array
+    // Cria uma variável do tipo array.
     let arrayLivros = [];
 
+    // Percorre o array para manipular as bibliotecas dos livros.
     livros.biblioteca.forEach(function(item){
+        // Percorre os livros de uma determinada bilioteca.
         item.books.forEach(function(livro){
+            //Busca uma palavra chave no title dos livros.
             if (livro.title.toUpperCase().includes(nome)){
+                // Se encontrado a palavra chave, adiciona os dados do livro no array, pelo método puxh().
                 arrayLivros.push({
                     "livro" : livro.title,
                     "isbn" : livro.isbn13,
                     "valor" : livro.price,
                     "cala" : livro.image
                 });
+                // Sinaliza que algum livro foi encontrado na busca.
+                status = true;
             }
         })
     });
-    return arrayLivros;
+    // Se algum livro encontrado, retorna os dados.
+    if (status){
+        return arrayLivros;
+    } else { // Retorna false.
+        return status;
+    }
 };
 
-console.log(getlivros("Android"));
+console.log(getlivros("html"));
