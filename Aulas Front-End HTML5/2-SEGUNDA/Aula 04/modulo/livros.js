@@ -2380,7 +2380,7 @@ const getlivros = function(nomeDoLivro){
                     "livro" : livro.title,
                     "isbn" : livro.isbn13,
                     "valor" : livro.price,
-                    "cala" : livro.image
+                    "capa" : livro.image
                 });
                 // Sinaliza que algum livro foi encontrado na busca.
                 status = true;
@@ -2398,5 +2398,7 @@ const getlivros = function(nomeDoLivro){
         return status;
     }
 };
-
+module.exports = {
+    getlivros
+}
 // console.log(getlivros("c#"));
