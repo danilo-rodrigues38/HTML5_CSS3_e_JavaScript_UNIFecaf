@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula06 - Iniciando com CSS</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--
+        HTML - Estruturar os elementos na pagina
+            (imagens, texto, tabelas, etc).
+
+        CSS (Cascading Style Sheet)
+            Estilizar o HTML.
+
+            Existem três maneiras de utilizar o CSS.
+                - Inline (Comando : valor;)
+                    Coloca-se a estilização do CSS, através da propriedade style=""
+                    (não é recomendado, pois repete muitas vezes a mesma formatação).
+
+                - Incorporado
+                    Existe três tipos de selores para associar o CSS com o HTML:
+                        - Seletor pela TAG
+                            Este seletor padroniza a estilização para todas as TAGs
+
+                        - Seletor por identificação (id)
+                            Este seletor, permite identificar um elemento e estilizar, porém, não podem haver dois nomes de IDs iguais.
+
+                        - Seletor pela classe (class)
+                            Este seletor, permite ser utilizado várias vezes dentro do mesmo HTML, ao contrário do ID.
+
+                - Externo
+
+
+    -->
+
+    <!--Modelo de CSS InLine, onde os comando entram diretamente na mesma linha-->
+    <h1 style="color: red; font-family: Verdana; text-align: center;">Iniciando com o CSS</h1>
+
+    <p style="font-family: arial; font-size: 16px; color: chocolate; text-align: center; padding: 20px;">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore molestias voluptatum quas reprehenderit aperiam quod, sint ullam, voluptates nostrum nemo ut quis eaque similique quos ad minima aliquam officia facere?
+    </p>
+
+    <h2 style="color: red; font-family: Verdana; text-align: center;">Exemplos de CSS</h2>
+
+    <h1>Aprendendo o CSS Incorporado</h1>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit accusamus, iure possimus animi fugit libero beatae, quam, ad pariatur error in ipsum officia! Eveniet, perspiciatis eum. Eos unde minus assumenda!
+    </p>
+
+    <h1 id="titulo">Testando o seletor pela TAG</h1>
+
+    <p class="texto_conteudo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. A ipsum porro, eligendi iure doloremque ratione quas iusto omnis pariatur distinctio error libero necessitatibus nesciunt cum tenetur suscipit assumenda, quaerat excepturi?
+    </p>
+
+    <h1>Testando o seletor de ID</h1>
+
+    <p class="texto_conteudo">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit quibusdam sunt dolorum voluptates. At ratione, quis doloremque id itaque maiores repudiandae natus dolore ut doloribus hic? Beatae ad repellendus tempora.
+    </p>
+
+</body>
+</html>
