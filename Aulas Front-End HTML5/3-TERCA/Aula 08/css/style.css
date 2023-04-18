@@ -1,0 +1,43 @@
+/* Padroniza essa formatação para todos os elementos HTML */
+*{
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* Elimina qualquer tamanho relacionado ao padding, que possa alterar a configuração de um elemento */
+    box-sizing: border-box;
+}
+
+/* Padroniza apenas o resultado do corpo do navegador*/
+body{
+    background-color: rgb(30, 30, 30);
+}
+
+#caixa_menu{
+    width: 150px;
+    height: 300px;
+    border: solid 1px white;
+}
+
+#menu{
+    width: 100px;
+    height: 250px;
+    background-color: coral;
+    /* Para centralizar um elemento podemos utilizar:
+        margin: auto;
+        ou
+        margin-left: auto;
+        margin-rigth: auto;
+    */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu_item{
+    width: 80px;
+    height: 30px;
+    background-color: darkkhaki;
+    margin-bottom: 7px;
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 7px;
+}
