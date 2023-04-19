@@ -11,6 +11,7 @@ import {dadosCep} from "./dados.js";
 // Cria um objeto do botão conforme a imput no HTML.
 var botao = document.getElementById("pesquisar");
 var form = document.getElementById("formulario");
+var caixaCep = document.getElementById("input-cep");
 
 // Função para receber o CEP e buscar os dados de endereço.
 const getDadosCep = function(){
@@ -53,5 +54,28 @@ const setDadosCep = function(item){
     form.estado.value = item.uf;
 }
 
+// Função para validar a entrada de dados e fazer a máscara do CEP.
+const validacaoMascara = function(teclaDigitada){
+    let ascii = teclaDigitada.charCode;
+    // document.getElementById("input-cep").style.backgroundColor = "white";
+
+    if (ascii < 48 || ascii > 57){
+        // document.getElementById("input-cep").style.backgroundColor = "red";
+        teclaDigitada.preventDefault();
+    } else {
+        let conteudoCep = String(document.getElementById("input-cep").value);
+        if (conteudoCep.length == 5){
+            document.getElementById("input-cep").value = conteudoCep + "-";
+        } else if (conteudoCep.length >= 9) {
+            teclaDigitada.preventDefault();
+        }
+    }
+};
+
 // Adiciona o evento de escutar o click do botão de pesquisar.
 botao.addEventListener("click", function(){getDadosCepAPI();});
+
+// Adiciona o evento de escutar a ação de digitar na caixa.
+caixaCep.addEventListener("keypress", function(tecla){
+    validacaoMascara(tecla);
+});
