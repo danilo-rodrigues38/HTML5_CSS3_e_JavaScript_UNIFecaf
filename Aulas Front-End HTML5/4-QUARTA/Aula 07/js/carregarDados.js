@@ -56,16 +56,31 @@ const setDadosCep = function(item){
 
 // Função para validar a entrada de dados e fazer a máscara do CEP.
 const validacaoMascara = function(teclaDigitada){
+    // Recebe a tecla digitada e converte para o código ascii.
     let ascii = teclaDigitada.charCode;
-    // document.getElementById("input-cep").style.backgroundColor = "white";
 
-    if (ascii < 48 || ascii > 57){
-        // document.getElementById("input-cep").style.backgroundColor = "red";
+    // Recebe o elemento da caixa de texto.
+    let cep = document.getElementById("input-cep");
+
+    // Padroniza a caixa de texto com o fundo branco.
+    //cep.style.backgroundColor = "white";
+
+    // Permite somente a entrada das tecla numéricas (0 até 9, conforme a tabela ascii.
+    if ((ascii < 48 || ascii > 57) && ascii != 13){
+        // Coloca a cor vermelha no fundo da caixa, para destacar o erro de digitação.
+        //cep.style.backgroundColor = "red";
+        // Cancela a ação da tecla digitada.
         teclaDigitada.preventDefault();
+    // Realiza a ação de executar a busca do CEP no Enter
+    } else if (ascii == 13) {
+        getDadosCepAPI();
     } else {
-        let conteudoCep = String(document.getElementById("input-cep").value);
+        // Caso a tecla digitada seja permitida, recebe o conteúdo ja existente na caixa.
+        let conteudoCep = String(cep.value);
+        // Se a quantidade de digitos for igual a 5, concatena o simbolo de traço no conteúdo da caixa.
         if (conteudoCep.length == 5){
-            document.getElementById("input-cep").value = conteudoCep + "-";
+            cep.value = conteudoCep + "-";
+        // Limita a quantidade de digitos em apenas nove digitos.
         } else if (conteudoCep.length >= 9) {
             teclaDigitada.preventDefault();
         }
