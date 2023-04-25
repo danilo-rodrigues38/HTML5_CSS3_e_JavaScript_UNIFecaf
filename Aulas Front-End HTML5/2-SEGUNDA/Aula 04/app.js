@@ -45,19 +45,61 @@ app.use((request, response, next) => {
 
 // ENDPOINT:
     // GET: Retorna os livros filtrando pelo nome.
-app.get("/livros/:nome", cors(), async function(request, response){
+    //  "/livros/:nome" - para usar a pesquisa via parâmetros.
+app.get("/livros", cors(), async function(request, response){
     // Existem duas formas de receber uma variável:
         // Forma 1: params (recebe por parâmetro dentro da URL (/));
         // Froma 2: queryString (recebe por variáveis de query (?)).
-
         // Recebe o nome do livro que será pesquisado. Através do params.
-        let nomeDoLivro = request.params.nome;
+        //let nomeDoLivro = request.params.nome;
+        let nomeDoLivro = request.query.nome;
+        let livros;
 
+        // Importe do arquivo de função que pesquisa os livros.
         let biblioteca = require("./modulo/livros");
-        let livros = biblioteca.getlivros(nomeDoLivro);
 
-        response.status(200);
-        response.json(livros);
+        if (nomeDoLivro != "" && nomeDoLivro != undefined){
+            // Função que recebe o nome do livro e pesquisa no JSON.
+            livros = biblioteca.getlivros(nomeDoLivro);
+        } else {
+            livros = biblioteca.getAllLivros();
+        }
+        // Validação para indicar se houve retorno de dados.
+        if (livros) {
+            response.status(200);
+            response.json(livros);
+        } else {
+            response.status(404);
+            response.json();
+        }
+});
+
+app.get("/livros/isbn/:isbn", cors(), async function(request, response){
+    // Existem duas formas de receber uma variável:
+        // Forma 1: params (recebe por parâmetro dentro da URL (/));
+        // Froma 2: queryString (recebe por variáveis de query (?)).
+        // Recebe o nome do livro que será pesquisado. Através do params.
+        //let nomeDoLivro = request.params.nome;
+        let nomeDoLivro = request.query.nome;
+        let livros;
+
+        // Importe do arquivo de função que pesquisa os livros.
+        let biblioteca = require("./modulo/livros");
+
+        if (nomeDoLivro != "" && nomeDoLivro != undefined){
+            // Função que recebe o nome do livro e pesquisa no JSON.
+            livros = biblioteca.getlivros(nomeDoLivro);
+        } else {
+            livros = biblioteca.getAllLivros();
+        }
+        // Validação para indicar se houve retorno de dados.
+        if (livros) {
+            response.status(200);
+            response.json(livros);
+        } else {
+            response.status(404);
+            response.json();
+        }
 });
 
 app.listen(8080, function(){
