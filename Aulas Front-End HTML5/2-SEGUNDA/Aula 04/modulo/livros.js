@@ -2398,7 +2398,82 @@ const getlivros = function(nomeDoLivro){
         return status;
     }
 };
+
+const getAllLivros = function() {
+    let status = false;
+    let arrayLivros = [];
+    let jsonDadosLivros = {};
+    // Percorre o array para manipular as bibliotecas dos livros.
+    livros.biblioteca.forEach(function(item){
+        // Percorre os livros de uma determinada bilioteca.
+        item.books.forEach(function(livro){
+            // Se encontrado a palavra chave, adiciona os dados do livro no array, pelo método puxh().
+            arrayLivros.push({
+                "livro" : livro.title,
+                "isbn" : livro.isbn13,
+                "valor" : livro.price,
+                "capa" : livro.image
+            });
+            // Sinaliza que algum livro foi encontrado na busca.
+            status = true;
+        })
+    });
+    if (status) {
+        // Cria um atributo de "quantidade_livros" para retornar a quantidade de livros encontrados.
+        jsonDadosLivros.quantidade_livros = arrayLivros.length;
+        // Cria um atributo "livros" para retornar o array de livros.
+        jsonDadosLivros.livros = arrayLivros;
+        return jsonDadosLivros;
+    } else { // Retorna false.
+        return falso;
+    }
+};
+
+const getIsbn = function(isbnDoLivro){
+
+    // Recebe a variável do nome do livro e converte para maiúscula.
+    let isbn = Long(isbnDoLivro);
+    let status = false;
+
+    // Cria uma variável do tipo array.
+    let arrayIsbn = [];
+
+    // Cria uma variável do tipo JSON
+    let jsonDadosLivros = {};
+
+    // Percorre o array para manipular as bibliotecas dos livros.
+    isbn.biblioteca.forEach(function(item){
+        // Percorre os livros de uma determinada bilioteca.
+        item.books.forEach(function(isbn){
+            //Busca uma palavra chave no title dos livros.
+            if (isbn.isbn13.includes(isbn)){
+                // Se encontrado a palavra chave, adiciona os dados do livro no array, pelo método puxh().
+                arrayIsbn.push({
+                    "livro" : isbn.title,
+                    "isbn" : isbn.isbn13,
+                    "valor" : isbn.price,
+                    "capa" : isbn.image
+                });
+                // Sinaliza que algum livro foi encontrado na busca.
+                status = true;
+            }
+        })
+    });
+    // Se algum livro encontrado, retorna os dados.
+    if (status){
+        // Cria um atributo de "quantidade_livros" para retornar a quantidade de livros encontrados.
+        jsonDadosLivros.quantidade_livros = arrayLivros.length;
+        // Cria um atributo "livros" para retornar o array de livros.
+        jsonDadosLivros.livros = arrayIsbn;
+        return jsonDadosLivros;
+    } else { // Retorna false.
+        return status;
+    }
+};
+
 module.exports = {
-    getlivros
+    getlivros,
+    getAllLivros,
+    getIsbn
 }
 // console.log(getlivros("c#"));
