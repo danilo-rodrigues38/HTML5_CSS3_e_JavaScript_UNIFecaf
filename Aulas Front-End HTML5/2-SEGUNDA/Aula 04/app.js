@@ -56,7 +56,7 @@ app.get("/livros", cors(), async function(request, response){
         let livros;
 
         // Importe do arquivo de função que pesquisa os livros.
-        let biblioteca = require("./modulo/livros");
+        let biblioteca = require("./modulo/livros.js");
 
         if (nomeDoLivro != "" && nomeDoLivro != undefined){
             // Função que recebe o nome do livro e pesquisa no JSON.
@@ -79,16 +79,16 @@ app.get("/livros/isbn/:isbn", cors(), async function(request, response){
         // Forma 1: params (recebe por parâmetro dentro da URL (/));
         // Froma 2: queryString (recebe por variáveis de query (?)).
         // Recebe o nome do livro que será pesquisado. Através do params.
-        //let nomeDoLivro = request.params.nome;
-        let nomeDoLivro = request.query.nome;
+        let isbnDoLivro = request.params.isbn;
+        //let isbnDoLivro = request.query.isbn;
         let livros;
 
         // Importe do arquivo de função que pesquisa os livros.
-        let biblioteca = require("./modulo/livros");
+        let biblioteca = require("./modulo/livros.js");
 
-        if (nomeDoLivro != "" && nomeDoLivro != undefined){
+        if (isbnDoLivro != "" && isbnDoLivro != undefined){
             // Função que recebe o nome do livro e pesquisa no JSON.
-            livros = biblioteca.getlivros(nomeDoLivro);
+            livros = biblioteca.getIsbn(isbnDoLivro);
         } else {
             livros = biblioteca.getAllLivros();
         }
