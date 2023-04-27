@@ -10,27 +10,111 @@
 
 header{
     width: 100%;
-    height: 100px;
-    background-color: #1e8fff;
+    height: 80px;
+    background-color: lightblue;
 }
 
+/* Serve para centralizar todas as seções do site (W: 1200 e H: inherit) */
 .principal{
     width: 1200px;
     height: inherit;
-    background-color: darksalmon;
     margin: auto;
+    background-color: aquamarine;
 }
 
 #logo{
-    width: 100px;
-    height: 100px;
-    background-color: green;
+    width: 150px;
+    height: inherit;
+    /* Permite alinhar dois ou mais containers lado a lado. Para funcionar, todos os containers procisam ser float. */
     float: left;
+}
+#logo figure, #logo figure img{
+    width: 80px;
+    height: 80px;
+    margin: auto;
 }
 
 #menu{
-    width: 800px;
+    width: 900px;
     height: inherit;
-    background-color: orangered;
     float: left;
+}
+
+#redesSociais{
+    width: 150px;
+    height: inherit;
+    /* Elimina o processo de float desta camada em diante, ou seja, todos os containers voltam a serm criados um embaixo do outro.
+    clear: both; */
+    float: right;
+    padding: 15px;
+}
+
+#menu ul{
+    width: inherit;
+    height: inherit;
+    padding: 15px;
+}
+
+#menu ul li{
+    width: 20%;
+    height: 50px;
+    list-style: none;
+    float: left;
+    text-align: center;
+    padding-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    color: black;
+}
+
+#menu ul li:hover{
+    background-color: rgb(115, 153, 202);
+    transition: 1s;
+    cursor: pointer;
+    border-radius: 30px;
+    color: black;
+}
+
+#redesSociais figure, #redesSociais figure img{
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-right: 15px;
+}
+
+#slogan{
+    width: 100%;
+    height: 500px;
+    /* Coloca uma imagem de fundo */
+    background-image: url(../imagens/background_img.avif);
+
+    /* Permite que a imagem não se repita caso for menor do que o espaço */
+    background-repeat: no-repeat;
+
+    /* Permite alinhar a imagem dentro da div */
+    background-position: center;
+
+    /* Permite ajustar o tamanho da imagem em px, %, etc.
+        cover - aplica um estilo de zoom na imagem, fazendo com que ela ocupe todo o espaço na div. */
+    background-size: cover;
+
+    /* Permite travar a imagem no fundo para aplicar um efeito de transição entre elementos. */
+    background-attachment: fixed;
+}
+
+#cardsBooks{
+    width: 100%;
+    height: 1500px;
+    background-color: aqua;
+}
+
+.card{
+    width: 350px;
+    height: 500px;
+    background-color: azure;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    box-shadow: 10px 10px 50px black;
 }
