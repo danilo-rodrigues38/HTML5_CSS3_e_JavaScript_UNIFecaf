@@ -108,6 +108,10 @@ header{
     background-color: aqua;
 }
 
+#cardsBooks .principal{
+    padding-top: 20px;
+}
+
 .card{
     width: 350px;
     height: 600px;
@@ -118,50 +122,59 @@ header{
     box-shadow: 10px 10px 50px black;
 }
 
-.photoBook{
-    text-align: center;
+.card figure{
+    width: 221px;
+    height: 318px;
+    margin: auto;
 }
 
-.title{
-    width: 300px;
-    height: 70px;
-    margin-left: 25px;
+.card figure img{
+    padding-top: 20px;
+    width: inherit;
+    height: inherit;
+    box-shadow: 10px 10px 10px black;
+}
+
+.card h2{
+    width: 75%;
+    height: 50px;
+    margin: auto;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
-    font-weight: bolder;
-}
-
-.subTitle{
-    width: 300px;
-    height: 70px;
-    margin-left: 25px;
+    font-size: 1.2em;
     font-weight: bold;
-    font-size: 0.95em;
+    padding-top: 15px;
 }
 
-.bookInformation{
-    width: 300px;
-    height: 60px;
-    margin-left: 25px;
+.isbn, .valor{
+    width: 75%;
+    height: 30px;
+    margin: auto;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
-    margin-right: 20px;
+    /* Padroniza a TAG SPAN para ser um elemento de container*/
+    display: block;
 }
 
-.btnBuy{
+.valor{
+    margin-bottom: 80px;
+}
+
+.comprar{
     width: 150px;
-    height: 35px;
+    height: 40px;
+    background-color: green;
+    margin: auto;
     text-align: center;
-    margin-left: 100px;
-    border-radius: 10px;
-    padding-top: 8px;
+    color: white;
+    text-transform: uppercase;
+    padding-top: 10px;
     font-weight: bold;
-    background-color: rgba(3, 3, 250, 0.521);
+    border-radius: 10px;
 }
 
-.btnBuy:hover{
-    background-color: rgba(3, 3, 250, 0.808);
-    transition: 0.5s;
+.comprar:hover{
+    background-color: darkgreen;
     cursor: pointer;
+    transition: 0.5s;
 }
