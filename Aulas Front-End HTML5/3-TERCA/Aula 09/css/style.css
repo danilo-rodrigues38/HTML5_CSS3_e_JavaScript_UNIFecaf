@@ -19,7 +19,6 @@ header{
     width: 1200px;
     height: inherit;
     margin: auto;
-    background-color: white;
 }
 
 #logo{
@@ -105,7 +104,6 @@ header{
 #cardsBooks{
     width: 100%;
     height: 1500px;
-    background-color: aqua;
 }
 
 #cardsBooks .principal{
@@ -119,17 +117,18 @@ header{
     float: left;
     margin-left: 38px;
     margin-bottom: 38px;
-    box-shadow: 10px 10px 50px black;
+    box-shadow: 10px 10px 20px black;
 }
 
 .card figure{
+    
+    padding-top: 20px;
     width: 221px;
     height: 318px;
     margin: auto;
 }
 
 .card figure img{
-    padding-top: 20px;
     width: inherit;
     height: inherit;
     box-shadow: 10px 10px 10px black;
@@ -143,7 +142,8 @@ header{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-weight: bold;
-    padding-top: 15px;
+    padding-top: 40px;
+    padding-bottom: 50px;
 }
 
 .isbn, .valor{
@@ -157,13 +157,13 @@ header{
 }
 
 .valor{
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .comprar{
     width: 150px;
     height: 40px;
-    background-color: green;
+    background-color: rgb(5, 156, 5);
     margin: auto;
     text-align: center;
     color: white;
@@ -174,7 +174,7 @@ header{
 }
 
 .comprar:hover{
-    background-color: darkgreen;
+    background-color: rgb(0, 71, 0);
     cursor: pointer;
     transition: 0.5s;
 }
