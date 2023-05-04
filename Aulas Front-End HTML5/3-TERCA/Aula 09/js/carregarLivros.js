@@ -21,61 +21,66 @@ const getLivros = function(){
 
 // Cria todos os cards no HTML.
 const createCard = function(dados){
+
     // Recebe o elemento da DIV principal do HTML.
     let conteudo = document.getElementById("conteudoLivros");
 
-    // ********** CRIA OS ELEMENTOS HTML **********
+    // Entra no atributo LIVROS do JSON e percorre o array de todos os livros
+    dados.livros.forEach(function(item){
 
-    // Cria a DIV para receber os cards.
-    let card = document.createElement("div");
-    // Atribui a propriedade CLASS e coloca o valor CARD (Exatamente igual criamos no HTML).
-    card.setAttribute("class", "card");
+        // ********** CRIA OS ELEMENTOS HTML **********
 
-    // Cria o elemento FIGURE.
-    let figure = document.createElement("figure");
+        // Cria a DIV para receber os cards.
+        let card = document.createElement("div");
+        // Atribui a propriedade CLASS e coloca o valor CARD (Exatamente igual criamos no HTML).
+        card.setAttribute("class", "card");
 
-    // Cria o elemento IMG.
-    let img = document.createElement("img");
-    img.setAttribute("src", "imagens/imagemLivro.png");
+        // Cria o elemento FIGURE.
+        let figure = document.createElement("figure");
 
-    // Cria o elemento H2.
-    let h2 = document.createElement("h2");
+        // Cria o elemento IMG.
+        let img = document.createElement("img");
+        img.setAttribute("src", item.capa);
 
-    // Cria o elemento SPAN.
-    let spanIsbn = document.createElement("span");
-    spanIsbn.setAttribute("class", "isbn");
+        // Cria o elemento H2.
+        let h2 = document.createElement("h2");
 
-    // Cria o elemento SPAN para o valor.
-    let spanValor = document.createElement("span");
-    spanValor.setAttribute("class", "valor");
+        // Cria o elemento SPAN.
+        let spanIsbn = document.createElement("span");
+        spanIsbn.setAttribute("class", "isbn");
 
-    // Cria o elemento para o botão comprar.
-    let divBotaoComprar = document.createElement("div");
-    divBotaoComprar.setAttribute("class", "comprar");
+        // Cria o elemento SPAN para o valor.
+        let spanValor = document.createElement("span");
+        spanValor.setAttribute("class", "valor");
 
-    // Cria o texto do Título H2
-    let titulo = document.createTextNode("Livro de teste");
-    // Cria o texto do ISBN e VALOR (SPAN).
-    let textIsbn = document.createTextNode("ISBN: " + "9876543210")
-    let textValor = document.createTextNode("R$ 123,45");
+        // Cria o elemento para o botão comprar.
+        let divBotaoComprar = document.createElement("div");
+        divBotaoComprar.setAttribute("class", "comprar");
 
-    // Cria o texto do botão comprar.
-    let TextBotaoComprar = document.createTextNode("Comprar");
+        // Cria o texto do Título H2
+        let titulo = document.createTextNode(item.livro);
+        // Cria o texto do ISBN e VALOR (SPAN).
+        let textIsbn = document.createTextNode("ISBN: " + item.isbn)
+        let textValor = document.createTextNode("R" + item.valor);
 
-    // ########## ASSOCIAR OS ELEMENTOS CONFORME O HTML ##########
-    conteudo.appendChild(card);
-    card.appendChild(figure);
-    figure.appendChild(img);
-    card.appendChild(h2);
-    card.appendChild(spanIsbn);
-    card.appendChild(spanValor);
-    card.appendChild(divBotaoComprar);
+        // Cria o texto do botão comprar.
+        let TextBotaoComprar = document.createTextNode("Comprar");
 
-    // ########## ASSOCIANDO OS TEXTOS NOS ELEMENTOS ##########
-    h2.appendChild(titulo);
-    spanIsbn.appendChild(textIsbn);
-    spanValor.appendChild(textValor);
-    divBotaoComprar.appendChild(TextBotaoComprar);
+        // ########## ASSOCIAR OS ELEMENTOS CONFORME O HTML ##########
+        conteudo.appendChild(card);
+        card.appendChild(figure);
+        figure.appendChild(img);
+        card.appendChild(h2);
+        card.appendChild(spanIsbn);
+        card.appendChild(spanValor);
+        card.appendChild(divBotaoComprar);
+
+        // ########## ASSOCIANDO OS TEXTOS NOS ELEMENTOS ##########
+        h2.appendChild(titulo);
+        spanIsbn.appendChild(textIsbn);
+        spanValor.appendChild(textValor);
+        divBotaoComprar.appendChild(TextBotaoComprar);
+    });
 }
 
 window.addEventListener('load', function(){ getLivros(); });
