@@ -5,6 +5,12 @@
  * Versão: 1.0.0
  ***********************************************************************************************/
 
+// Recebe o botão pesquisar
+var botaoPesquisar = document.getElementById("pesquisar");
+
+// Recebe o elemento da DIV principal do HTML.
+var conteudo = document.getElementById("conteudoLivros");
+
 // Retorna todos os livros
 const getLivros = function(){
     let url = "http://localhost:8080/livros";
@@ -19,11 +25,22 @@ const getLivros = function(){
     })
 }
 
+// Retorna os livros firltrados pelo nome.
+const getLivrosByName = function(nomeLivro){
+    let url = `http://localhost:8080/livros?nome=${nomeLivro}`;
+
+    fetch (url)
+
+    .then (function(response){
+        return response.json();
+    })
+    .then (function(dadoslivros){
+        createCard(dadoslivros);
+    })
+}
+
 // Cria todos os cards no HTML.
 const createCard = function(dados){
-
-    // Recebe o elemento da DIV principal do HTML.
-    let conteudo = document.getElementById("conteudoLivros");
 
     // Entra no atributo LIVROS do JSON e percorre o array de todos os livros
     dados.livros.forEach(function(item){
@@ -83,4 +100,21 @@ const createCard = function(dados){
     });
 }
 
+const clearCards = function(){
+    // Limpa o resultado da div.
+    conteudo.innerText = "";
+}
+
 window.addEventListener('load', function(){ getLivros(); });
+
+botaoPesquisar.addEventListener('click', function(){
+    clearCards();
+
+    let nome = document.getElementById("nomeLivro").value;
+
+    if (nome == ""){
+        getLivros();
+    } else {
+        getLivrosByName(nome);
+    }
+})
