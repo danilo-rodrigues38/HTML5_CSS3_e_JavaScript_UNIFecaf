@@ -16,10 +16,7 @@ var prisma = new PrismaClient();
 const insertAluno = async function(dadosAluno){
 
     // Script SQL para inserir o aluno no Banco de Dados.
-    let sql = `insert into tbl_aluno 
-            (nome, cpf, email, telefone) 
-            values 
-            ('${dadosAluno.nome}', '${dadosAluno.cpf}', '${dadosAluno.email}', '${dadosAluno.telefone}')`
+    let sql = `insert into tbl_aluno (nome, cpf, email, telefone) values ('${dadosAluno.nome}', '${dadosAluno.cpf}', '${dadosAluno.email}', '${dadosAluno.telefone}')`;
     
     // Executa o script SQL no Banco de Dados.
     let result = await prisma.$excuteRawUnsafe(sql);
@@ -36,7 +33,7 @@ const insertAluno = async function(dadosAluno){
 const updateAluno = async function(dadosAluno){
 
     // Script para atualizar os dados no Banco de Dados.
-    let sql = `update tbl_aluno set nome='${dadosAluno.nome}', cpf='${dadosAluno.cpf}', email='${dadosAluno.email}', telefone='${dadosAluno.telefone}' where id = '${dadosAluno.id}'`
+    let sql = `update tbl_aluno set nome='${dadosAluno.nome}', cpf='${dadosAluno.cpf}', email='${dadosAluno.email}', telefone='${dadosAluno.telefone}' where id = '${dadosAluno.id}'`;
 
     // Executa o script SQL no Banco de DAdos.
     let result = await prisma.$excuteRawUnsafe(sql);
