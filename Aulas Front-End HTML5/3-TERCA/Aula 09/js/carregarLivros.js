@@ -105,7 +105,7 @@ const clearCards = function(){
     conteudo.innerText = "";
 }
 
-window.addEventListener('load', function(){ getLivros(); });
+//window.addEventListener('load', function(){ getLivros(); });
 
 botaoPesquisar.addEventListener('click', function(){
     clearCards();
