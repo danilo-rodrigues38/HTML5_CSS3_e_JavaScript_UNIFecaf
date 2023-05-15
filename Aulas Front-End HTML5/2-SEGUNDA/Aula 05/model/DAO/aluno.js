@@ -13,7 +13,7 @@ var { PrismaClient } = require ( '@prisma/client' );
 var prisma = new PrismaClient();
 
 // Função para incerir um novo aluno.
-const insertAluno = function(dadosAluno){
+const insertAluno = async function(dadosAluno){
 
     // Script SQL para inserir o aluno no Banco de Dados.
     let sql = `insert into tbl_aluno 
@@ -22,7 +22,7 @@ const insertAluno = function(dadosAluno){
             ('${dadosAluno.nome}', '${dadosAluno.cpf}', '${dadosAluno.email}', '${dadosAluno.telefone}')`
     
     // Executa o script SQL no Banco de Dados.
-    let result = prisma.$excuteRawUnsafe(sql);
+    let result = await prisma.$excuteRawUnsafe(sql);
 
     if (result) {
         return true;
@@ -33,13 +33,13 @@ const insertAluno = function(dadosAluno){
 };
 
 // Função para atualizar um aluno.
-const updateAluno = function(dadosAluno){
+const updateAluno = async function(dadosAluno){
 
     // Script para atualizar os dados no Banco de Dados.
     let sql = `update tbl_aluno set nome='${dadosAluno.nome}', cpf='${dadosAluno.cpf}', email='${dadosAluno.email}', telefone='${dadosAluno.telefone}' where id = '${dadosAluno.id}'`
 
     // Executa o script SQL no Banco de DAdos.
-    let result = prisma.$excuteRawUnsafe(sql);
+    let result = await prisma.$excuteRawUnsafe(sql);
 
     if (result) {
         return true;
@@ -49,13 +49,13 @@ const updateAluno = function(dadosAluno){
 };
 
 // Função para excluir um aluno.
-const deleteAluno = function(id){
+const deleteAluno = async function(id){
 
     // Script SQL para excluir um registro.
     let sql =  `delete form tbl_aluno where id = ${id}`;
     
     // Executa o script SQL no Banco de DAdos.
-    let result = prisma.$excuteRawUnsafe(sql);
+    let result = await prisma.$excuteRawUnsafe(sql);
 
     if (result) {
         return true;
@@ -65,13 +65,13 @@ const deleteAluno = function(id){
 };
 
 // Função para listar todos os alunos.
-const selectAllAluno = function(){
+const selectAllAluno = async function(){
 
     // Script para listar todos os dados do Banco de Dados.
     let sql = `select * from tbl_aluno`
 
     // Executa o script SQL e recebe os dados de retorno do Banco de Dados.
-    let result = prisma.$queryRawUnsafe(sql);
+    let result = await prisma.$queryRawUnsafe(sql);
 
     if (result.length > 0) {
         return result;
@@ -81,13 +81,13 @@ const selectAllAluno = function(){
 };
 
 // Função para buscar um aluno pelo ID.
-const selectByIdAluno = function(id){
+const selectByIdAluno = async function(id){
 
     // Script SQL para buscar pelo ID.
     let sql = `select * from tbl_aluno where id = ${id}`;
 
     // Executa o script SQL no Banco de Dados.
-    let result = prisma.$queryRawUnsafe(sql);
+    let result = await prisma.$queryRawUnsafe(sql);
 
     if (result.length > 0) {
         return result;
