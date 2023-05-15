@@ -95,3 +95,5 @@ const selectByIdAluno = function(id){
         return false;
     };
 };
+
+module.exports = {insertAluno, updateAluno, deleteAluno, selectAllAluno, selectByIdAluno}
