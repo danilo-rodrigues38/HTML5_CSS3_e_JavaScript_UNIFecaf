@@ -1,8 +1,6 @@
-
 var estadosCidades = { 
-    pais: 'Brasil',
-    estados: 
-    [
+   pais: 'Brasil',
+   estados: [
         {
             sigla : 'SP',
             nome  : 'Sao Paulo',
@@ -22492,4 +22490,25 @@ var estadosCidades = {
              ]
         }
     ]
-};
+}
+
+const getUf = function(uf) {
+   let nome = String(uf).toLocaleUpperCase();
+   let status = false;
+   let arrayUf = [];
+   let jsonDadosEstados = {};
+
+   estadosCidades.pais.forEach(function(item){
+      item.estados.forEach(function(unidadeFederativa){
+         if (unidadeFederativa.sigla.toUpperCase().includes(nome)){
+            arrayUf.push({"UF": unidadeFederativa.UF})
+         }
+      })
+   });
+}
+
+module.exports = {
+   getUf
+}
+
+console.log(this.getUf(uf));
