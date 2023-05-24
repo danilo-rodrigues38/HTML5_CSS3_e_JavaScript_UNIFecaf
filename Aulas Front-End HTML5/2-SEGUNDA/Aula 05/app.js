@@ -5,7 +5,7 @@
  * Versão: 1.0.0
  * 
  * Para criar a API devemos instalar os seguintes pacotes
- *      * npm install axpress --save
+ *      * npm install express --save
  *      * npm install cors --save
  *      * npm install body-parse --save
  * 
@@ -15,6 +15,7 @@
  *      * npx prisma init // Permite inicializa a utilização do PRISMA na API.
  *              (Cria uma pasta chamada prisma, um arquivo chamado env, um arquivo chamado gitignore).
  *      * npm install @prisma/client --save // Instala o cliente ára manipular os scriptsSQL
+ *      * npx prisma migrate dev // 
  ***********************************************************************************************/
 
 // Dependência para cria a API.
@@ -44,14 +45,23 @@ app.use((request, response, next) => {
     next();
 });
 
+// Define que os dados que chegaram no corpo da requisição será em formato JSON.
+const bodyParserJson = bodyParser.json();
+
 // End Points:
 // POST - Requisição para criar algo no Banco de Dados.
-app.post("/v1/unifecaf/aluno", cors(), async function(request, response){
+app.post("/v1/unifecaf/aluno", bodyParserJson, cors(), async function(request, response){
+    // Recebe os dados encaminhados no corpo da requisição.
+    let dadosBody = request.body;
+    let controllerAluno = require("./controller/AlunoController.js");
+    let result = await controllerAluno.inserirAluno(dadosBody);
 
+    response.status(result.statusCode);
+    response.json(result.message);
 });
 
 // PUT - Requisição para atualizar algo existente no Banco de Dados.
-app.put("/v1/unifecaf/aluno/:id", cors(), async function(request, response){
+app.put("/v1/unifecaf/aluno/:id", bodyParserJson, cors(), async function(request, response){
 
 });
 

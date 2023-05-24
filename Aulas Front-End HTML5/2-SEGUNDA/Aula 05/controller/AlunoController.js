@@ -95,7 +95,7 @@ const buscarAluno = async function(id){
     }
 };
 
-mudule.exports {
+module.exports = {
     inserirAluno,
     atualizarAluno,
     excluirAluno,

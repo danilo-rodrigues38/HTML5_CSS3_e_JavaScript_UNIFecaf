@@ -19,7 +19,7 @@ const insertAluno = async function(dadosAluno){
     let sql = `insert into tbl_aluno (nome, cpf, email, telefone) values ('${dadosAluno.nome}', '${dadosAluno.cpf}', '${dadosAluno.email}', '${dadosAluno.telefone}')`;
     
     // Executa o script SQL no Banco de Dados.
-    let result = await prisma.$excuteRawUnsafe(sql);
+    let result = await prisma.$executeRawUnsafe(sql);
 
     if (result) {
         return true;
