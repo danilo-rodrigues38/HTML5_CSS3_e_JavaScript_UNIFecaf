@@ -22492,23 +22492,26 @@ var estadosCidades = {
     ]
 }
 
-const getUf = function(uf) {
-   let nome = String(uf).toLocaleUpperCase();
+const getUf = function() {
    let status = false;
    let arrayUf = [];
-   let jsonDadosEstados = {};
+   let jsonDadosUf = {};
 
-   estadosCidades.pais.forEach(function(item){
-      item.estados.forEach(function(unidadeFederativa){
-         if (unidadeFederativa.sigla.toUpperCase().includes(nome)){
-            arrayUf.push({"UF": unidadeFederativa.UF})
-         }
-      })
+   estadosCidades.estados.forEach(function(item){
+      arrayUf.push(item.sigla);
+      status = true;
    });
-}
+   if (status) {
+      jsonDadosUf.uf = arrayUf;
+      jsonDadosUf.quantidade = arrayUf.length;
+      return jsonDadosUf;
+   } else {
+      return status;
+   }
+};
 
 module.exports = {
    getUf
 }
 
-console.log(this.getUf(uf));
+console.log(getUf());
