@@ -42,7 +42,7 @@ const atualizarAluno = async function(dadosAluno, id){
             dadosAluno.id = idAluno;
             let result = await alunoDAO.updateAluno(dadosAluno);
             if (result) {
-                return {statusCode: 201, message: "Item inserido com sucesso!"};
+                return {statusCode: 200, message: "Item atualizado com sucesso!"};
             } else {
                 return {statusCode: 500, message: "Erro interno do servidor!"}
             }
