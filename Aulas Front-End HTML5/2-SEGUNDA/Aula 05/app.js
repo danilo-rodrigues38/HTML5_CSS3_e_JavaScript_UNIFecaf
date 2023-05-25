@@ -48,12 +48,15 @@ app.use((request, response, next) => {
 // Define que os dados que chegaram no corpo da requisição será em formato JSON.
 const bodyParserJson = bodyParser.json();
 
+// Importe da controller de Aluno.
+var controllerAluno = require("./controller/AlunoController.js");
+
 // End Points:
 // POST - Requisição para criar algo no Banco de Dados.
 app.post("/v1/unifecaf/aluno", bodyParserJson, cors(), async function(request, response){
+
     // Recebe os dados encaminhados no corpo da requisição.
     let dadosBody = request.body;
-    let controllerAluno = require("./controller/AlunoController.js");
     let result = await controllerAluno.inserirAluno(dadosBody);
 
     response.status(result.statusCode);
@@ -63,22 +66,59 @@ app.post("/v1/unifecaf/aluno", bodyParserJson, cors(), async function(request, r
 // PUT - Requisição para atualizar algo existente no Banco de Dados.
 app.put("/v1/unifecaf/aluno/:id", bodyParserJson, cors(), async function(request, response){
 
+    // Recebe os dados encaminhados no corpo da requisição.
+    let dadosBody = request.body;
+
+    // REcebe o ID do Aluno.
+    let idAluno = request.params.id;
+
+    let result = await controllerAluno.atualizarAluno(dadosBody, idAluno);
+
+    response.status(result.statusCode);
+    response.json(result.message);
 });
 
 // DELETE - Requisição para deletar algo existente no Banco de Dados.
 app.delete("/v1/unifecaf/aluno/:id", cors(), async function(request, response){
 
+    // Recebe o ID enviado via parâmetro na URL.
+    let idAluno = request.params.id;
+
+    // Chama a controller para listar todos os Alunos.
+    let result = await controllerAluno.excluirAluno(idAluno);
+
+    // Retorna o statusCode.
+    response.status(result.statusCode);
+    // Retorna o JSON completo com todos os itens
+    response.json(result.message);
 });
 
 // GET - Requisição parabuscar algo existente no Banco de Dados.
     // Busca todos os dados da tabela.
 app.get("/v1/unifecaf/aluno", cors(), async function(request, response){
 
+    // Chama a controller para listar todos os Alunos.
+    let result = await controllerAluno.listarTodosAlunos();
+
+    // Retorna o statusCode.
+    response.status(result.statusCode);
+    // Retorna o JSON completo com todos os itens
+    response.json(result);
 });
 
     // Buscar pelo ID.
 app.get("/v1/unifecaf/aluno/:id", cors(), async function(request, response){
 
+    // Recebe o ID enviado via parâmetro na URL.
+    let idAluno = request.params.id;
+
+    // Chama a controller para listar todos os Alunos.
+    let result = await controllerAluno.buscarAlunos(idAluno);
+
+    // Retorna o statusCode.
+    response.status(result.statusCode);
+    // Retorna o JSON completo com todos os itens
+    response.json(result);
 });
 
 app.listen(8080, function(){

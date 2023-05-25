@@ -22492,26 +22492,26 @@ var estadosCidades = {
     ]
 }
 
-const getUf = function() {
+const getEstadosUF = function() {
    let status = false;
-   let arrayUf = [];
-   let jsonDadosUf = {};
+   let arrayEstadosUF = [];
+   let jsonEstadosUF = {};
 
    estadosCidades.estados.forEach(function(item){
-      arrayUf.push(item.sigla);
+      arrayEstadosUF.push(item.sigla);
       status = true;
    });
    if (status) {
-      jsonDadosUf.uf = arrayUf;
-      jsonDadosUf.quantidade = arrayUf.length;
-      return jsonDadosUf;
+      jsonEstadosUF.uf = arrayEstadosUF;
+      jsonEstadosUF.quantidade = arrayEstadosUF.length;
+      return jsonEstadosUF;
    } else {
       return status;
    }
 };
 
 module.exports = {
-   getUf
+   getEstadosUF
 }
 
-console.log(getUf());
+console.log(getEstadosUF());
