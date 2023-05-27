@@ -21361,7 +21361,6 @@ var estadosCidades = {
                 },
                 {
                    "nome":"Tufilândia",
-                   "nome":"Titemilândia",
                    "id":"655"
                 },
                 {
