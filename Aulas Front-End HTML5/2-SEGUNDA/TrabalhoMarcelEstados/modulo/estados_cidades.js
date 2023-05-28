@@ -22568,7 +22568,7 @@ const getRegiao = function(regiaoPais) {
             "descricao" : first.nome
          })
          jsonRegiao = {
-            "regiao" : first.sigla,
+            "regiao" : first.regiao.toUpperCase(),
             "estados" : arrayEstados
          };
          status = true;
@@ -22615,5 +22615,3 @@ module.exports = {
    getRegiao,
    getCidades   
 };
-
-// console.log(getCidades("sp"));
