@@ -6,14 +6,6 @@
  * Versão: 0.0.1
  */
 
-/**
- * Pacotes necessários para criar uma API no node.
- * npm install express --save
- * npm install cors --save
- * npm install body-parser --save
- * 
- * Para reinstalar todo o projeto, rodar o comando: npm i
- */
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -23,7 +15,7 @@ app.use(cors());
 
 app.use((request, response, next) => {
     response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    response.header("Access-Control-Allow-Methods", "GET");
 
     app.use(cors());
 
@@ -57,7 +49,6 @@ app.get("/estados", async function(request, response){
     }
 });
 
-
 app.get("/capital", async function(request, response){
     let siglaDoEstado = request.query.sigla;
     let estados = require("./modulo/estados_cidades.js");
@@ -73,7 +64,31 @@ app.get("/capital", async function(request, response){
 });
 
 app.get("/regiao", async function(request, response){
-    let 
+    let regiaoPais = request.query.regiao;
+    let estados = require("./modulo/estados_cidades.js");
+    let estadosCidades = estados.getRegiao(regiaoPais);
+
+    if (estados) {
+        response.status(200);
+        response.json(estadosCidades);
+    } else {
+        response.status(404);
+        response.json();
+    }
+});
+
+app.get("/cidades", async function(request, response){
+    let siglaDoEstado = request.query.sigla;
+    let estados = require("./modulo/estados_cidades.js");
+    let estadosCidades = estados.getCidades(siglaDoEstado);
+
+    if (estados) {
+        response.status(200);
+        response.json(estadosCidades);
+    } else {
+        response.status(404);
+        response.json();
+    }
 });
 
 app.listen(8080, function(){
