@@ -22518,10 +22518,10 @@ const getEstadosNome = function(siglaDoEstado) {
    estadosCidades.estados.forEach(function(first){
       if (first.sigla.toUpperCase().includes(siglaEstado)) {
          jsonEstadosNome = {
-            "UF" : first.sigla,
-            "Estado" : first.nome,
-            "Capital" : first.capital,
-            "Regiao" : first.regiao
+            "uf" : first.sigla,
+            "descricao" : first.nome,
+            "capital" : first.capital,
+            "regiao" : first.regiao
          };
          status = true;
       };
