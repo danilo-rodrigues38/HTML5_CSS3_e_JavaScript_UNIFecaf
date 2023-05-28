@@ -22502,7 +22502,7 @@ const getEstadositem = function() {
       status = true;
    });
    if (status) {
-      jsonEstadositem.item = arrayEstadositem;
+      jsonEstadositem.uf = arrayEstadositem;
       jsonEstadositem.quantidade = arrayEstadositem.length;
       return jsonEstadositem;
    } else {
