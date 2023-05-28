@@ -22541,9 +22541,9 @@ const getCapital = function(siglaDoEstado) {
    estadosCidades.estados.forEach(function(first){
       if (first.sigla.toUpperCase().includes(siglaEstado)) {
          jsonCapital = {
-            "UF" : first.sigla,
-            "Estado" : first.nome,
-            "Capital" : first.capital
+            "uf" : first.sigla,
+            "descricao" : first.nome,
+            "capital" : first.capital
          };
          status = true;
       };
@@ -22564,13 +22564,12 @@ const getRegiao = function(regiaoPais) {
    estadosCidades.estados.forEach(function(first){
       if (first.regiao.toUpperCase().includes(nome)) {
          arrayEstados.push({
-            "UF" : first.sigla,
-            "Estado" : first.nome,
-            "Capital" : first.capital,
+            "uf" : first.sigla,
+            "descricao" : first.nome
          })
          jsonRegiao = {
-            "Regiao" : first.sigla,
-            "Estados" : arrayEstados
+            "regiao" : first.sigla,
+            "estados" : arrayEstados
          };
          status = true;
       };
@@ -22593,10 +22592,10 @@ const getCidades = function(cidadesEstado) {
          if (first.sigla.toUpperCase().includes(uf)) {
             arrayCidades.push(second.nome)
             jsonCidades = {
-               "UF" : first.sigla,
-               "Estado" : first.nome,
-               "Quantidade_cidades" : arrayCidades.length,
-               "Cidades" : arrayCidades
+               "uf" : first.sigla,
+               "descricao" : first.nome,
+               "quantidade_cidades" : arrayCidades.length,
+               "cidades" : arrayCidades
             };
             status = true;
          };
