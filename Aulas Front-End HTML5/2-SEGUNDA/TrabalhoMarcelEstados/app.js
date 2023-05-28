@@ -19,6 +19,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
+app.use(cors());
 
 app.use((request, response, next) => {
     response.header("Access-Control-Allow-Origin", "*");
@@ -29,16 +30,23 @@ app.use((request, response, next) => {
     next();
 });
 
-app.get("/uf", cors(), async function(request, response){
-    let siglaDoEstado = request.query.sigla;
-    let estadosCidades;
+app.get("/uf", async function(request, response){
     let estados = require("./modulo/estados_cidades.js");
+    let estadosCidades = estados.getEstadositem();
 
-    if (siglaDoEstado != "" && siglaDoEstado != undefined){
-        estadosCidades = estados.getEstadosNome(siglaDoEstado);
+    if (estados) {
+        response.status(200);
+        response.json(estadosCidades);
     } else {
-        estadosCidades = estados.getEstadositem();
+        response.status(404);
+        response.json();
     }
+});
+
+app.get("/estados", async function(request, response){
+    let siglaDoEstado = request.query.sigla;
+    let estados = require("./modulo/estados_cidades.js");
+    let estadosCidades = estados.getEstadosNome(siglaDoEstado);
 
     if (estados) {
         response.status(200);
@@ -50,11 +58,23 @@ app.get("/uf", cors(), async function(request, response){
 });
 
 
+app.get("/capital", async function(request, response){
+    let siglaDoEstado = request.query.sigla;
+    let estados = require("./modulo/estados_cidades.js");
+    let estadosCidades = estados.getCapital(siglaDoEstado);
 
+    if (estados) {
+        response.status(200);
+        response.json(estadosCidades);
+    } else {
+        response.status(404);
+        response.json();
+    }
+});
 
-
-
-
+app.get("/regiao", async function(request, response){
+    let 
+});
 
 app.listen(8080, function(){
     console.log("Servidor aguardando requisição na porta 8080.");
